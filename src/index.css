@@ -17,3 +17,6 @@
 body{
      font-family: "Poppins", sans-serif;
 }
+.slick-dots .slick-active button{
+    @apply w-8 bg-brand
+}
