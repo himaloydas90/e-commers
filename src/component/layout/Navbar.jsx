@@ -9,7 +9,7 @@ const navbar = () => {
 const catagories =["men's Fashion","Kid's Fashion","Home & Lifestyle","Arts & Crafts","Computer & Electronics","Food & Grocery"]
 
 
-  return (
+  return (   
     <header>
       <nav className='py-8'>
           <div className="container flex justify-between items-center flex-wrap md:flex-nowrap gap-5">
