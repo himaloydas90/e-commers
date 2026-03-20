@@ -7,46 +7,46 @@ const Category = () => {
        { titel:"Health & Household",
         icon : MdHealthAndSafety 
        },
-       { titel:"Health & Household",
+       { titel:"Household",
         icon : MdHealthAndSafety 
        },
-       { titel:"Health & Household",
+       { titel:"Health &",
         icon : MdHealthAndSafety 
        },
-       { titel:"Health & Household",
+       { titel:"Health & Hou",
         icon : MdHealthAndSafety 
        },
-       { titel:"Health & Household",
+       { titel:"Health & ehold",
         icon : MdHealthAndSafety 
        },
-              { titel:"Health & Household",
+              { titel:"Health  Household",
         icon : MdHealthAndSafety 
        },
-       { titel:"Health & Household",
+       { titel:"Health & ousehold",
         icon : MdHealthAndSafety 
        },
-       { titel:"Health & Household",
+       { titel:"Health & Houehold",
         icon : MdHealthAndSafety 
        },
-       { titel:"Health & Household",
+       { titel:"Healh & Household",
         icon : MdHealthAndSafety 
        },
-       { titel:"Health & Household",
+       { titel:"Health & Hold",
         icon : MdHealthAndSafety 
        },
-              { titel:"Health & Household",
+              { titel:"Health & hold",
         icon : MdHealthAndSafety 
        },
-       { titel:"Health & Household",
+       { titel:"Health & House",
         icon : MdHealthAndSafety 
        },
-       { titel:"Health & Household",
+       { titel:"Health & Housld",
         icon : MdHealthAndSafety 
        },
-       { titel:"Health & Household",
+       { titel:"Health sehold",
         icon : MdHealthAndSafety 
        },
-       { titel:"Health & Household",
+       { titel:"Heal Household",
         icon : MdHealthAndSafety 
        },
     ]
@@ -54,7 +54,7 @@ const Category = () => {
     <section>
         <div className='container'>
             <h3 className='heading pb-8'>Category</h3>
-          <div className='grid grid-cols-5 gap-3.5'>
+          <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1  md:gap-3.5'>
              {
             categori.map((item) =>(
                  

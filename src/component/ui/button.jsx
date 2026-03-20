@@ -12,7 +12,7 @@ const Button = ({
 }) => {
 
   const base =
-    "px-6 py-3 inline-flex cursor-pointer items-center justify-center rounded-lg font-medium transition-all focus:outline-none";
+    "px-6 py-3 flex w-fit cursor-pointer items-center justify-center rounded-lg font-medium transition-all focus:outline-none";
 
   const variants = {
     primary: "bg-brand text-white ",
