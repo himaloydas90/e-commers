@@ -17,7 +17,7 @@ const Carditem = ({data}) => {
                 }
             <div className='pt-3.5 px-1'>
                <div className='flex pb-2.5 items-center  gap-0.5'>
-                {mystar.map((_, index) => (
+                {mystar.map((FaStar, index) => (
                    <FaStar key={index} className={index < rating ? "text-[#FAC96B]" : "text-[#D3D3D3]"} />
                    ))}
                    <p className='text-primary font-normal'>(0)</p>
