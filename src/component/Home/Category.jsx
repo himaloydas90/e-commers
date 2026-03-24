@@ -1,5 +1,12 @@
 import React from 'react'
-import { MdArrowForwardIos, MdHealthAndSafety } from 'react-icons/md'
+import { BsWrenchAdjustable } from 'react-icons/bs'
+import { FcBusinesswoman } from 'react-icons/fc'
+import { GiPocketWatch } from 'react-icons/gi'
+import { IoLibraryOutline, IoWoman } from 'react-icons/io5'
+import { LuNotepadText } from 'react-icons/lu'
+import { MdAddHomeWork, MdArrowForwardIos, MdHealthAndSafety } from 'react-icons/md'
+import { PiShirtFoldedLight, PiTShirtFill, PiWatchBold } from 'react-icons/pi'
+import { RiJewelryFill, RiLuggageCartFill, RiShoppingBag4Fill } from 'react-icons/ri'
 import { Link } from 'react-router'
 
 const Category = () => {
@@ -7,47 +14,47 @@ const Category = () => {
        { titel:"Health & Household",
         icon : MdHealthAndSafety 
        },
-       { titel:"Household",
-        icon : MdHealthAndSafety 
+       { titel:"Kids Fashion",
+        icon : PiTShirtFill 
        },
-       { titel:"Health &",
-        icon : MdHealthAndSafety 
+       { titel:"Toys",
+        icon : FcBusinesswoman
        },
-       { titel:"Health & Hou",
-        icon : MdHealthAndSafety 
+       { titel:"Groceries",
+        icon : RiLuggageCartFill
        },
-       { titel:"Health & ehold",
-        icon : MdHealthAndSafety 
+       { titel:"Men Fashion",
+        icon : PiShirtFoldedLight 
        },
-              { titel:"Health  Household",
-        icon : MdHealthAndSafety 
+        { titel:"Women’s Fashion",
+        icon : IoWoman 
        },
-       { titel:"Health & ousehold",
-        icon : MdHealthAndSafety 
+       { titel:"Stationary & Books",
+        icon : IoLibraryOutline 
        },
-       { titel:"Health & Houehold",
-        icon : MdHealthAndSafety 
+       { titel:"Leather Goods",
+        icon : RiShoppingBag4Fill 
        },
-       { titel:"Healh & Household",
-        icon : MdHealthAndSafety 
+       { titel:"Home & Lifestyle",
+        icon : MdAddHomeWork 
        },
-       { titel:"Health & Hold",
-        icon : MdHealthAndSafety 
+       { titel:"Jewelleries ",
+        icon : RiJewelryFill 
        },
-              { titel:"Health & hold",
-        icon : MdHealthAndSafety 
+        { titel:"Watches",
+        icon : PiWatchBold 
        },
-       { titel:"Health & House",
-        icon : MdHealthAndSafety 
+       { titel:"Man Fashion",
+        icon : GiPocketWatch 
        },
-       { titel:"Health & Housld",
-        icon : MdHealthAndSafety 
+       { titel:"Tools & Hardware",
+        icon : BsWrenchAdjustable 
        },
-       { titel:"Health sehold",
-        icon : MdHealthAndSafety 
+       { titel:"Pet Supplies",
+        icon : RiShoppingBag4Fill 
        },
-       { titel:"Heal Household",
-        icon : MdHealthAndSafety 
+       { titel:"Seasonal",
+        icon :LuNotepadText 
        },
     ]
   return (
@@ -56,9 +63,8 @@ const Category = () => {
             <h3 className='heading pb-8'>Category</h3>
           <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1  md:gap-3.5'>
              {
-            categori.map((item) =>(
-                 
-                <Link key={item.titel} className='p-4 shadow flex items-center rounded-xl'>
+            categori.map((item) =>( 
+                <Link key={item.titel} className='p-4 shadow gap-2.5 flex items-center rounded-xl'>
                 <item.icon className='text-3xl text-[#0970CD]'/>
                 <p className='font-normal text-base text-secondary'>{item.titel}</p>
                 <MdArrowForwardIos className='ml-auto text-[#999999]' />

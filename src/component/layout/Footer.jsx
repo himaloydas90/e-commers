@@ -1,5 +1,7 @@
 import React from 'react'
-import { FaCarSide, FaHeadphonesAlt, FaInstagram, FaLinkedinIn, FaTwitter } from 'react-icons/fa'
+import { FaCarSide, FaHeadphonesAlt, FaInstagram, FaLinkedinIn, FaStar, FaTwitter } from 'react-icons/fa'
+import { GiBackwardTime } from 'react-icons/gi'
+import { MdOutlinePayment } from 'react-icons/md'
 import { TiSocialFacebook } from 'react-icons/ti'
 import { Link } from 'react-router'
 
@@ -11,19 +13,19 @@ const Footer = () => {
       icon:FaCarSide
     },
      {
-      title:"FyEE SHIPPING",
-      subtitle:"Order via Campaign",
-      icon:FaCarSide
+      title:"Best Price",
+      subtitle:"Quality products",
+      icon:FaStar
     },
      {
-      title:"FRjE SHIPPING",
-      subtitle:"Order via Campaign",
-      icon:FaCarSide
+      title:"Free Retern",
+      subtitle:"Within 7 days returns",
+      icon:GiBackwardTime
     },
      {
-      title:"FREf SHIPPING",
-      subtitle:"Order via Campaign",
-      icon:FaCarSide
+      title:"Secure Payment",
+      subtitle:"100% secure payment",
+      icon:MdOutlinePayment
     },
   ]
   return (
@@ -90,7 +92,7 @@ const Footer = () => {
 
       {/* Contact Section */}
       <div>
-        <h6 className='font-medium text-[20px] pb-6 text-primary'>CONTACT</h6>
+        <Link className='font-medium text-[20px] pb-6 text-primary'>CONTACT</Link>
         <p className='pb-6'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor </p>
         <div className='flex pb-12 items-center gap-4'>
           <div className='text-brand text-5xl'><FaHeadphonesAlt /></div>
