@@ -4,6 +4,7 @@ import { FaCartArrowDown, FaStar } from 'react-icons/fa'
 const Carditem = ({data}) => {
     if (!data) return null;
     const { image, discount, title, price, rating } = data;
+    const mystar =[FaStar,FaStar,FaStar,FaStar,FaStar]
 
   return (
      
@@ -16,7 +17,7 @@ const Carditem = ({data}) => {
                 }
             <div className='pt-3.5 px-1'>
                <div className='flex pb-2.5 items-center  gap-0.5'>
-                {[...Array(5)].map((_, index) => (
+                {mystar.map((_, index) => (
                    <FaStar key={index} className={index < rating ? "text-[#FAC96B]" : "text-[#D3D3D3]"} />
                    ))}
                    <p className='text-primary font-normal'>(0)</p>
