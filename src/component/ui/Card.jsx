@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
-import Carditem from './carditem'
+import Carditem from './Carditem'
 import { FaLongArrowAltRight } from 'react-icons/fa'
 
 const Card = () => {
