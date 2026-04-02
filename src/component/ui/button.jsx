@@ -8,9 +8,8 @@ const Button = ({
   disabled = false,
   onClick,
   type = "button",
-  className = ""
+  className = "",
 }) => {
-
   const base =
     "px-6 py-3 flex w-fit cursor-pointer items-center justify-center rounded-lg font-medium transition-all focus:outline-none";
 

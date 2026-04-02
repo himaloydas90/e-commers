@@ -1,31 +1,26 @@
-import React from 'react';
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
-// ১. নেক্সট অ্যারো কম্পোনেন্ট
-const NextArrow = ({ onClick, currentSlide, slideCount, ...props }) => {
+function NextArrow(props) {
+  const { className, onClick } = props;
   return (
-    <div 
-      {...props} 
-      onClick={onClick} 
-      className="absolute bottom-[-25px] left-1/2 -translate-x-1/2 cursor-pointer text-xl text-gray-600 hover:text-black transition-all"
+    <div
+      className={`${className} text-secondary flex items-center justify-center w-3/4 mt-2.5`}
+      onClick={onClick}
     >
-      <FaChevronDown />
+      <FaChevronDown className="text-xl" />
     </div>
   );
-};
+}
 
-// ২. প্রিভিয়াস অ্যারো কম্পোনেন্ট
-const PrevArrow = ({ onClick, currentSlide, slideCount, ...props }) => {
+function PrevArrow(props) {
+  const { className, onClick } = props;
   return (
-    <div 
-      {...props} 
-      onClick={onClick} 
-      className="absolute top-[-25px] left-1/2 -translate-x-1/2 cursor-pointer text-xl text-gray-600 hover:text-black transition-all"
+    <div
+      className={`${className} text-secondary flex items-center justify-center w-3/4 mb-2.5`}
+      onClick={onClick}
     >
-      <FaChevronUp />
+      <FaChevronUp className="text-xl" />
     </div>
   );
-};
-
-// ৩. এক্সপোর্ট করা
+}
 export { NextArrow, PrevArrow };

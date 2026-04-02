@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
-const Dropdown = ({ 
-  label, 
-  options, 
-  onSelect, 
-  className = "",       // Button-er custom style
-  menuClassName = "",   // Menu-r custom style
-  containerClass = ""   // Puro box-er custom style
+const Dropdown = ({
+  label,
+  options,
+  onSelect,
+  className = "", // Button-er custom style
+  menuClassName = "", // Menu-r custom style
+  containerClass = "", // Puro box-er custom style
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -18,8 +18,8 @@ const Dropdown = ({
         setIsOpen(false);
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const handleOptionClick = (option) => {
@@ -30,8 +30,10 @@ const Dropdown = ({
 
   return (
     // containerClass diye apni puro dropdown-er position control korte parben
-    <div className={`relative inline-block text-left ${containerClass}`} ref={dropdownRef}>
-      
+    <div
+      className={`relative inline-block text-left ${containerClass}`}
+      ref={dropdownRef}
+    >
       {/* Dropdown Button - Ekhane custom 'className' add kora hoyeche */}
       <button
         onClick={() => setIsOpen(!isOpen)}
@@ -41,18 +43,25 @@ const Dropdown = ({
           {selectedOption ? selectedOption.label : label}
         </span>
         <svg
-          className={`w-5 h-5 transition-transform duration-200 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
+          className={`w-5 h-5 transition-transform duration-200 ${isOpen ? "rotate-180" : "rotate-0"}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M19 9l-7 7-7-7"
+          />
         </svg>
       </button>
 
       {/* Dropdown Menu - Ekhane 'menuClassName' add kora hoyeche */}
       {isOpen && (
-        <div className={`absolute z-10 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-xl overflow-hidden animate-in fade-in zoom-in duration-200 ${menuClassName}`}>
+        <div
+          className={`absolute z-10 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-xl overflow-hidden animate-in fade-in zoom-in duration-200 ${menuClassName}`}
+        >
           <ul className="py-1">
             {options.map((option, index) => (
               <li
