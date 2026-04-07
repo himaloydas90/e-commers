@@ -30,7 +30,7 @@ const navbar = () => {
           </div>
           <div className="flex gap-5 md:gap-10 order-2 md:order-3">
             <Link
-              to="/login"
+              to="/registration"
               className="flex items-center gap-1.5 text-base font-normal text-primary"
             >
               <FaRegUser />
