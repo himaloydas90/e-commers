@@ -42,6 +42,7 @@ const Category = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1  md:gap-3.5">
           {categori.map((item) => (
             <Link
+            to="/shop"
               key={item.titel}
               className="p-4 shadow gap-2.5 flex items-center rounded-xl"
             >

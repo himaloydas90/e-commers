@@ -37,10 +37,12 @@ const navbar = () => {
               <span className="hidden md:block">login</span>
             </Link>
 
+            <Link to="/Shop/:id">
             <div className="flex items-center gap-1.5">
               <FaRegHeart />
               <span className="hidden md:block">Wishlist</span>
             </div>
+            </Link>
             <Link
               to="/login"
               className="flex items-center gap-1.5 text-base font-normal text-primary"
