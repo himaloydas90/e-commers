@@ -7,6 +7,7 @@ import Productdetails from "./pages/Productdetails";
 import API from "./pages/API";
 import Login from "./pages/Login";
 import Registration from "./pages/registration";
+import Reduxtext from "./pages/Reduxtext";
 
 
 
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/Shop/:id" element={<Productdetails />} />
         </Route>
         <Route path="/Api" element={<API />} />
+        <Route path="/Reduxtext" element={<Reduxtext />} />
       </Routes>
     </BrowserRouter>
   );

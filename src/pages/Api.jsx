@@ -1,24 +1,24 @@
 
-import axios from 'axios';
+// import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import Button from '../component/ui/Button';
-import Input from '../component/ui/input';
+// import Button from '../component/ui/Button';
+// import Input from '../component/ui/input';
 
 const API = () => {
   // ==================== FETCH ====================
-  //  const [Data, setData] = useState([]);
-  // useEffect(() => {
-  // fetch("https://jsonplaceholder.typicode.com/users")
-  //   .then((res)=>{
-  //       return res.json();
-  //   })
-  //   .then((data)=>{
-  //       setData(data);
-  //     })
-  //   .catch((error)=>{
-  //     console.log(error);
-  //   })
-  // }, [])
+    const [Data, setData] = useState([]);
+   useEffect(() => {
+   fetch("https://jsonplaceholder.typicode.com/users")
+     .then((res)=>{
+         return res.json();
+     })
+     .then((data)=>{
+         setData(data);
+       })
+     .catch((error)=>{
+       console.log(error);
+     })
+   }, [])
 
   // ==================== ASYNC,AWAIT ====================
   // const [Data,setData] = useState([])
@@ -59,52 +59,52 @@ const API = () => {
   //  },[])
 
 // ====================POST====================
-  const [postData, setpostData] = useState({
-    title:"",
-    body:""
-  });
-  const handlePost =async ()=>{
-    const data =await axios.post("https://jsonplaceholder.typicode.com/posts",{
-      title:postData.title,
-      body:postData.body
+  // const [postData, setpostData] = useState({
+  //   title:"",
+  //   body:""
+  // });
+  // const handlePost =async ()=>{
+  //   const data = await axios.post("https://jsonplaceholder.typicode.com/posts",{
+  //     title:postData.title,
+  //     body:postData.body
 
-    })
-    console.log("api=",data)
-  }
+  //   })
+  //   console.log("Api=",data)
+  // }
 
   return (
 
-//  <div className="p-10 bg-gray-50 min-h-screen">
-//   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-//     {Data.map((item) => (
-//       <div 
-//         key={item.id} className=" bg-white p-8 rounded-3xl shadow-sm border border-secondary/20">
-//             <h1 className="text-xl font-bold text-brand ">
-//               {item.name}
-//             </h1>
-//             <h2 className="text-sm font-medium text-brand/80">
-//               @{item.username}
-//             </h2>
-//       </div>
-//     ))}
+  <div className="p-10 bg-gray-50 min-h-screen">
+   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+     {Data.map((item) => (
+       <div 
+         key={item.id} className=" bg-white p-8 rounded-3xl shadow-sm border border-secondary/20">
+            <h1 className="text-xl font-bold text-brand ">
+              {item.name}
+             </h1>
+             <h2 className="text-sm font-medium text-brand/80">
+               @{item.username}
+             </h2>
+       </div>
+     ))}
+   </div>
+ </div>
+// <div>
+//   <div className='flex flex-col gap-6 justify-center mx-auto items-center h-screen w-lg'>
+//     <Input onChange={(e) =>
+//       setpostData((prev) =>({...prev, title: e.target.value}))
+//     }
+//       type="text"
+//       placeholder='Enter your taitle' />
+//     <Input onChange={(e) =>
+//       setpostData((prev) =>({...prev, body: e.target.value}))
+//     }
+//       type="text"
+//       placeholder='Enter your body' />
+//     <Button onClick={handlePost} variant="primary">
+//         submit
+//       </Button>
 //   </div>
-// </div>
-<div>
-  <div className='flex flex-col gap-6 justify-center mx-auto items-center h-screen w-lg'>
-    <Input onChange={(e) =>
-      setpostData((prev) =>({...prev, title: e.target.value}))
-    }
-      type="text"
-      placeholder='Enter your taitle' />
-    <Input onChange={(e) =>
-      setpostData((prev) =>({...prev, body: e.target.value}))
-    }
-      type="text"
-      placeholder='Enter your body' />
-    <Button onClick={handlePost} variant="primary">
-        submit
-      </Button>
-  </div>
-</div>
+// </div> 
 )}
 export default API
