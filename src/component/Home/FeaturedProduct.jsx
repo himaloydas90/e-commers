@@ -8,7 +8,7 @@ import Button from "../ui/button";
 const FeatureProduct = () => {
   const products = [
     {
-      image: "pro (16).png",
+      thumbnail: "pro (16).png",
       id: 1,
       discount: 25,
       title: "Headrest Executive Mesh Office Chair",
@@ -16,14 +16,14 @@ const FeatureProduct = () => {
       rating: 4,
     },
     {
-      image: "pro (15).png",
+      thumbnail: "pro (15).png",
       id: 2,
       title: " Mesh Office Chair",
       price: 10500,
       rating: 5,
     },
     {
-      image: "pro (14).png",
+      thumbnail: "pro (14).png",
       id: 3,
       discount: 25,
       title: " Mesh Office Chair",
@@ -31,7 +31,7 @@ const FeatureProduct = () => {
       rating: 5,
     },
     {
-      image: "pro (13).png",
+      thumbnail: "pro (13).png",
       id: 4,
       discount: 25,
       title: " Mesh Office Chair",
@@ -39,7 +39,7 @@ const FeatureProduct = () => {
       rating: 4,
     },
     {
-      image: "pro (12).png",
+      thumbnail: "pro (12).png",
       id: 5,
       discount: 25,
       title: "Headrest Executive Mesh Office Chair",
@@ -47,14 +47,14 @@ const FeatureProduct = () => {
       rating: 4,
     },
     {
-      image: "pro (11).png",
+      thumbnail: "pro (11).png",
       id: 6,
       title: " Mesh Office Chair",
       price: 10500,
       rating: 5,
     },
     {
-      image: "pro (10).png",
+      thumbnail: "pro (10).png",
       id: 7,
       discount: 25,
       title: " Mesh Office Chair",
@@ -62,7 +62,7 @@ const FeatureProduct = () => {
       rating: 5,
     },
     {
-      image: "pro (9).png",
+      thumbnail: "pro (9).png",
       id: 8,
       discount: 25,
       title: " Mesh Office Chair",
@@ -70,7 +70,7 @@ const FeatureProduct = () => {
       rating: 4,
     },
     {
-      image: "pro (8).png",
+      thumbnail: "pro (8).png",
       id: 9,
       discount: 25,
       title: "Headrest Executive Mesh Office Chair",
@@ -78,14 +78,14 @@ const FeatureProduct = () => {
       rating: 4,
     },
     {
-      image: "pro (7).png",
+      thumbnail: "pro (7).png",
       id: 10,
       title: " Mesh Office Chair",
       price: 10500,
       rating: 5,
     },
     {
-      image: "pro (6).png",
+      thumbnail: "pro (6).png",
       id: 11,
       discount: 25,
       title: " Mesh Office Chair",
@@ -93,7 +93,7 @@ const FeatureProduct = () => {
       rating: 5,
     },
     {
-      image: "pro (5).png",
+      thumbnail: "pro (5).png",
       id: 12,
       discount: 25,
       title: " Mesh Office Chair",
@@ -101,7 +101,7 @@ const FeatureProduct = () => {
       rating: 4,
     },
     {
-      image: "pro (4).png",
+      thumbnail: "pro (4).png",
       id: 13,
       discount: 25,
       title: "Headrest Executive Mesh Office Chair",
@@ -109,14 +109,14 @@ const FeatureProduct = () => {
       rating: 4,
     },
     {
-      image: "pro (3).png",
+      thumbnail: "pro (3).png",
       id: 14,
       title: " Mesh Office Chair",
       price: 10500,
       rating: 5,
     },
     {
-      image: "pro (2).png",
+      thumbnail: "pro (2).png",
       id: 15,
       discount: 25,
       title: " Mesh Office Chair",
@@ -124,7 +124,7 @@ const FeatureProduct = () => {
       rating: 5,
     },
     {
-      image: "pro (1).png",
+      thumbnail: "pro (1).png",
       id: 16,
       discount: 25,
       title: " Mesh Office Chair",

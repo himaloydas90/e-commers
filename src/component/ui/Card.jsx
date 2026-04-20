@@ -6,7 +6,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 const Card = () => {
   const products = [
     {
-      image: "image (2).png",
+      thumbnail: "image (2).png",
       id: 1,
       discount: 25,
       title: "Headrest Executive Mesh Office Chair",
@@ -14,14 +14,14 @@ const Card = () => {
       rating: 4,
     },
     {
-      image: "image (3).png",
+      thumbnail: "image (3).png",
       id: 2,
       title: " Women fashion dress set",
       price: 10500,
       rating: 5,
     },
     {
-      image: "pro (10).png",
+      thumbnail: "pro (10).png",
       id: 3,
       discount: 25,
       title: " Headrest Executive Mesh Office Chair set",
@@ -29,7 +29,7 @@ const Card = () => {
       rating: 5,
     },
     {
-      image: "image (4).png",
+      thumbnail: "image (4).png",
       id: 4,
       discount: 25,
       title: " Women black dress and red hat collections",
