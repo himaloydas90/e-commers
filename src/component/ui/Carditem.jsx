@@ -9,7 +9,7 @@ const Carditem = ({ data }) => {
   return (
     <div className="p-2.5 border border-[#E9E9E9] rounded-2xl ">
       <div className="relative rounded-2xl overflow-hidden">
-        <img src={image} alt={title} className="w-full" />
+        <img src={data.thumbnail} alt={title} className="w-full" />
         {discount && (
           <p className=" absolute left-0 top-0 py-1 px-3 bg-bage">
             -{discount}% OFF

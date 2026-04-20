@@ -4,10 +4,9 @@ import Layout from "./component/layout";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Productdetails from "./pages/Productdetails";
-import API from "./pages/API";
 import Login from "./pages/Login";
 import Registration from "./pages/registration";
-import Reduxtext from "./pages/Reduxtext";
+
 
 
 
@@ -18,14 +17,12 @@ const App = () => {
       <Routes>
         <Route path="/Login" element={<Login />} />
         <Route path="/Registration" element={<Registration />} />
-        <Route path="/Api" element={<API />} />
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/Shop" element={<Shop />} />
           <Route path="/Shop/:id" element={<Productdetails />} />
         </Route>
-        <Route path="/Api" element={<API />} />
-        <Route path="/Reduxtext" element={<Reduxtext />} />
+        
       </Routes>
     </BrowserRouter>
   );

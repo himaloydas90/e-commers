@@ -28,7 +28,7 @@ const navbar = () => {
               <FaSearch className="text-xl" />
             </Button>
           </div>
-          <div className="flex gap-5 md:gap-10 order-2 md:order-3">
+          <div className="flex items-center gap-5 md:gap-10 order-2 md:order-3">
             <Link
               to="/registration"
               className="flex items-center gap-1.5 text-base font-normal text-primary"
@@ -48,7 +48,7 @@ const navbar = () => {
               className="flex items-center gap-1.5 text-base font-normal text-primary"
             >
               <BsCartDash />
-              <span className="hidden md:block">My cart</span>
+              <span className="hidden text-nowrap md:block">My cart</span>
               <span className="w-5 h-5 rounded-full text-white text-center flex items-center justify-center bg-red-500">
                 0
               </span>

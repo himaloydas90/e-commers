@@ -3,8 +3,14 @@ import Dropdown from "../component/ui/Dropdown";
 import Carditem from "../component/ui/Carditem";
 import { Link } from "react-router";
 import { FaChevronDown } from "react-icons/fa";
+import { useGetProductsQuery } from "../Services/Api";
+
 
 const Shop = () => {
+  const { data, error, isLoading } = useGetProductsQuery();
+  console.log(data);
+ 
+ 
   const categori = [
     { titel: "Health & Household" },
     { titel: "Kids Fashion" },
@@ -14,104 +20,104 @@ const Shop = () => {
     { titel: "Women’s Fashion" },
   ];
 
-  const products = [
-    {
-      image: "image (2).png",
-      id: 1,
-      discount: 25,
-      title: "Headrest Executive Mesh Office Chair",
-      price: 10500,
-      rating: 4,
-    },
-    {
-      image: "pro (10).png",
-      id: 2,
-      discount: 25,
-      title: " Headrest Executive Mesh Office Chair set",
-      price: 10500,
-      rating: 5,
-    },
-    {
-      image: "image (4).png",
-      id: 3,
-      discount: 25,
-      title: " Women black dress and red hat collections",
-      price: 10500,
-      rating: 4,
-    },
-    {
-      image: "image (2).png",
-      id: 4,
-      discount: 25,
-      title: "Headrest Executive Mesh Office Chair",
-      price: 10500,
-      rating: 4,
-    },
-    {
-      image: "pro (10).png",
-      id: 5,
-      discount: 25,
-      title: " Headrest Executive Mesh Office Chair set",
-      price: 10500,
-      rating: 5,
-    },
-    {
-      image: "image (4).png",
-      id: 6,
-      discount: 25,
-      title: " Women black dress and red hat collections",
-      price: 10500,
-      rating: 4,
-    },
-    {
-      image: "image (2).png",
-      id: 7,
-      discount: 25,
-      title: "Headrest Executive Mesh Office Chair",
-      price: 10500,
-      rating: 4,
-    },
-    {
-      image: "pro (10).png",
-      id: 8,
-      discount: 25,
-      title: " Headrest Executive Mesh Office Chair set",
-      price: 10500,
-      rating: 5,
-    },
-    {
-      image: "image (4).png",
-      id: 9,
-      discount: 25,
-      title: " Women black dress and red hat collections",
-      price: 10500,
-      rating: 4,
-    },
-    {
-      image: "image (2).png",
-      id: 10,
-      discount: 25,
-      title: "Headrest Executive Mesh Office Chair",
-      price: 10500,
-      rating: 4,
-    },
-    {
-      image: "pro (10).png",
-      id: 11,
-      discount: 25,
-      title: " Headrest Executive Mesh Office Chair set",
-      price: 10500,
-      rating: 5,
-    },
-    {
-      image: "image (4).png",
-      id: 12,
-      discount: 25,
-      title: " Women black dress and red hat collections",
-      price: 10500,
-      rating: 4,
-    },
-  ];
+  // const products = [
+  //   {
+  //     image: "image (2).png",
+  //     id: 1,
+  //     discount: 25,
+  //     title: "Headrest Executive Mesh Office Chair",
+  //     price: 10500,
+  //     rating: 4,
+  //   },
+  //   {
+  //     image: "pro (10).png",
+  //     id: 2,
+  //     discount: 25,
+  //     title: " Headrest Executive Mesh Office Chair set",
+  //     price: 10500,
+  //     rating: 5,
+  //   },
+  //   {
+  //     image: "image (4).png",
+  //     id: 3,
+  //     discount: 25,
+  //     title: " Women black dress and red hat collections",
+  //     price: 10500,
+  //     rating: 4,
+  //   },
+  //   {
+  //     image: "image (2).png",
+  //     id: 4,
+  //     discount: 25,
+  //     title: "Headrest Executive Mesh Office Chair",
+  //     price: 10500,
+  //     rating: 4,
+  //   },
+  //   {
+  //     image: "pro (10).png",
+  //     id: 5,
+  //     discount: 25,
+  //     title: " Headrest Executive Mesh Office Chair set",
+  //     price: 10500,
+  //     rating: 5,
+  //   },
+  //   {
+  //     image: "image (4).png",
+  //     id: 6,
+  //     discount: 25,
+  //     title: " Women black dress and red hat collections",
+  //     price: 10500,
+  //     rating: 4,
+  //   },
+  //   {
+  //     image: "image (2).png",
+  //     id: 7,
+  //     discount: 25,
+  //     title: "Headrest Executive Mesh Office Chair",
+  //     price: 10500,
+  //     rating: 4,
+  //   },
+  //   {
+  //     image: "pro (10).png",
+  //     id: 8,
+  //     discount: 25,
+  //     title: " Headrest Executive Mesh Office Chair set",
+  //     price: 10500,
+  //     rating: 5,
+  //   },
+  //   {
+  //     image: "image (4).png",
+  //     id: 9,
+  //     discount: 25,
+  //     title: " Women black dress and red hat collections",
+  //     price: 10500,
+  //     rating: 4,
+  //   },
+  //   {
+  //     image: "image (2).png",
+  //     id: 10,
+  //     discount: 25,
+  //     title: "Headrest Executive Mesh Office Chair",
+  //     price: 10500,
+  //     rating: 4,
+  //   },
+  //   {
+  //     image: "pro (10).png",
+  //     id: 11,
+  //     discount: 25,
+  //     title: " Headrest Executive Mesh Office Chair set",
+  //     price: 10500,
+  //     rating: 5,
+  //   },
+  //   {
+  //     image: "image (4).png",
+  //     id: 12,
+  //     discount: 25,
+  //     title: " Women black dress and red hat collections",
+  //     price: 10500,
+  //     rating: 4,
+  //   },
+  // ];
 
   const categories = [
     { label: " Newest Items", value: " Newest Items" },
@@ -163,9 +169,13 @@ const Shop = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pt-8 lg:pt-5">
-          {products.map((item) => (
+          {isLoading
+          ? 
+            <p>Loading...</p>
+          :
+          data?.products?.map((item) => (
             <Carditem key={item.id} data={item} />
-          ))}
+          ))} 
         </div>
       </div>
     </main>
