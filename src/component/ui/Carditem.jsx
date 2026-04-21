@@ -9,10 +9,10 @@ const Carditem = ({ data }) => {
   return (
     <div className="p-2.5 border border-[#E9E9E9] rounded-2xl ">
       <div className="relative rounded-2xl overflow-hidden">
-        <img src={data.thumbnail} alt={title} className="w-full" />
-        {discount && (
+        <img src={data?.thumbnail} alt={data?.title} className="w-full" />
+        {data?.discountPercentage && (
           <p className=" absolute left-0 top-0 py-1 px-3 bg-bage">
-            -{discount}% OFF
+            -{data?.discountPercentage}% OFF
           </p>
         )}
         <div className="pt-3.5 px-1">
@@ -20,14 +20,14 @@ const Carditem = ({ data }) => {
             {mystar.map((FaStar, index) => (
               <FaStar
                 key={index}
-                className={index < rating ? "text-[#FAC96B]" : "text-[#D3D3D3]"}
+                className={index < data?.rating ? "text-[#FAC96B]" : "text-[#D3D3D3]"}
               />
             ))}
-            <p className="text-primary font-normal">(0)</p>
+            <p className="text-primary font-normal">({data?.rating.toFixed(1)})</p>
           </div>
-          <h4 className="text-lg font-normal text-primary">{title}</h4>
+          <h4 className="text-lg font-normal text-primary">{data?.title}</h4>
           <div className="flex justify-between items-center">
-            <p className="text-xl font-medium text-brand py-2.5">৳{price}</p>
+            <p className="text-xl font-medium text-brand py-2.5">${data?.price.toFixed(2)}</p>
             <button>
               <FaCartArrowDown className="text-3xl text-brand" />
             </button>

@@ -9,9 +9,9 @@ const Input = ({
   onChange,
   error,
   className = "",
-  ...props // বাকি সব প্রপস (যেমন: onBlur, required ইত্যাদি) এখানে চলে আসবে
+  ...props
 }) => {
-  // ডিফল্ট স্টাইলগুলো এখানে রাখা হয়েছে
+
   const defaultClasses =
     "px-4 py-2 border border-gray-300 rounded-md outline-none transition-all w-full";
 
@@ -34,7 +34,6 @@ const Input = ({
         onChange={onChange}
         placeholder={placeholder}
         {...props}
-        /* এখানে ${className} শেষে থাকায় এটি আগের বর্ডার বা প্যাডিংকে ওভাররাইড করবে */
         className={`${defaultClasses} ${className} ${error ? "border-red-500" : ""}`}
       />
 

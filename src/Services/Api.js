@@ -7,7 +7,7 @@ export const ApiService = createApi({
    }),
    endpoints: (build) => ({
     getProducts: build.query({
-      query: () => '/products',
+      query: ({ limit, skip }) => `/products?limit=${limit} &skip=${skip}`, 
     }),
    }),
 

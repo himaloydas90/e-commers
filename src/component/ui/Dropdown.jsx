@@ -7,6 +7,7 @@ const Dropdown = ({
   className = "", // Button-er custom style
   menuClassName = "", // Menu-r custom style
   containerClass = "", // Puro box-er custom style
+  disable = false, // Dropdown disable korte chaile
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -34,7 +35,6 @@ const Dropdown = ({
       className={`relative inline-block text-left ${containerClass}`}
       ref={dropdownRef}
     >
-      {/* Dropdown Button - Ekhane custom 'className' add kora hoyeche */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`w-full bg-white border border-gray-300 rounded-lg px-4 py-2 flex justify-between items-center shadow-sm hover:bg-gray-50 focus:outline-none transition-all ${className}`}
