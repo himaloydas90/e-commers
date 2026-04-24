@@ -1,31 +1,37 @@
 import React, { useEffect, useState } from "react";
 import Dropdown from "../component/ui/Dropdown";
-import Carditem from "../component/ui/Carditem";
-import { Link } from "react-router";
+import Card from "../component/ui/card"; 
+import { Link, useSearchParams } from "react-router";
 import { FaChevronDown } from "react-icons/fa";
-import { useGetProductsQuery } from "../Services/Api";
+import { useGetCategoryListQuery, useGetProductsQuery } from "../Services/Api";
 import { DefaultPagination } from "../component/ui/Pagination";
+import Error from "../component/ui/Error";
+import Loding from "../component/ui/Loding";
+import CategoryLoading from "../component/ui/CategoriLoding";
+
+
 
 
 const Shop = () => {
+  const [searchparams] = useSearchParams();
+  const category = searchparams.get("category");
   const [limit,setLimit] = useState(30);
   const [pageNum, setPageNum] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
-  const { data, error, isLoading } = useGetProductsQuery({limit,skip: (pageNum - 1) * limit});
+  const {data: categoris} = useGetCategoryListQuery();
+  const { data, isLoading, isError, isFetching ,refetch} = useGetProductsQuery(
+    {
+      limit,
+      skip: (pageNum - 1) * limit,
+      category,
+
+    });
   useEffect(() => {
     if (data?.total) {
       setTotalPage(Math.ceil(data?.total / limit));
     }  
   },[data, limit]);
 
-  const categori = [
-    { titel: "Health & Household" },
-    { titel: "Kids Fashion" },
-    { titel: "Toys" }, 
-    { titel: "Groceries" },
-    { titel: "Men Fashion" },
-    { titel: "Women’s Fashion" },
-  ];
   const categories = [
     { label: " 12", value: " 12" },
     { label: "24", value: "24" },
@@ -37,26 +43,41 @@ const Shop = () => {
   return (
     <main className="container grid grid-cols-1 md:grid-cols-12 pt-8 lg:pt-14 pb-14 gap-8 lg:gap-12 items-start ">
       <div className="col-span-1 md:col-span-3 md:sticky md:top-5 bg-white h-fit p-4 lg:p-2.5 shadow-sm lg:shadow-none">
-        <p className="text-lg font-medium text-primary">Related Categories</p>
-        <ul className="space-y-2 mt-3.5 mb-5">
-          {categori.map((item) => (
-            <li key={item.titel}>
-              <Link to="#">
-                <p className="text-base text-secondary hover:text-brand transition-all uppercase">
-                  {item.titel}
-                </p>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <p className="text-lg font-medium text-primary pb-5">Related Categories</p>
         <div className="flex justify-between items-center border-t-2 border-t-[#E5E5E5] pt-5 pb-8">
           <p className="text-lg font-medium text-primary">Filter by</p>
           <FaChevronDown className="text-xl text-primary" />
         </div>
         <input type="range" className="w-full" />
-        <p className="text-lg font-medium text-primary pt-5 ">
+        <p className="text-lg font-medium text-primary pt-5 border-b border-b-amber-100 pb-5">
           <span className="text-[#424241]">Price :</span> $1000 - $10000
         </p>
+        <ul className="space-y-2 mt-3.5 mb-5">
+          { isLoading || isFetching ?
+          (
+            <>
+            <CategoryLoading/>
+            <CategoryLoading/>
+            <CategoryLoading/>
+            <CategoryLoading/>
+            <CategoryLoading/>
+            <CategoryLoading/>
+            </>
+          ):isError ?(
+            <p>Something went wrong</p>
+          )
+          :(
+          categoris?.map((item) => (
+            <li key={item}>
+              <Link to={`/shop?category=${item}`}>
+                <p className="text-base text-secondary hover:text-brand transition-all capitalize">
+                  {item}
+                </p>
+              </Link>
+            </li>
+          )))}
+        </ul>
+        
       </div>
       <div className="col-span-1 md:col-span-9">
         <div className="flex flex-col sm:flex-row justify-between items-start md:items-center gap-4">
@@ -79,14 +100,28 @@ const Shop = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pt-8 lg:pt-5">
-          {isLoading
-          ? 
-            <p>Loading...</p>
-          :
-          data?.products?.map((item) => (
-            <Carditem key={item.id} data={item} />
-          ))} 
-        </div>
+  {isLoading || isFetching ? (
+    <>
+      <Loding />
+      <Loding />
+      <Loding />
+      <Loding />
+      <Loding />
+      <Loding />
+      <Loding />
+      <Loding />
+      <Loding />
+    </>
+  ) : isError ? (
+    <div className="col-span-full">
+      <Error onRetry={refetch} />
+    </div>
+  ) : (
+    data?.products?.map((item) => (
+      <Card key={item.id} data={item} />
+    ))
+  )}
+</div>
         <DefaultPagination handlePageChange={(page) => setPageNum(page)} pageNum={pageNum} totalPage={totalPage} />
       </div>
       

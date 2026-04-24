@@ -4,15 +4,23 @@ import "slick-carousel/slick/slick.css";
 import { NextArrow, PrevArrow } from '../component/ui/Arros';
 import { TiSocialFacebook } from 'react-icons/ti';
 import { FaCheck, FaHeart, FaLinkedinIn, FaRegStar, FaStar, FaStarHalfAlt, FaTwitter } from 'react-icons/fa';
-import { Link } from 'react-router';
+import { Link, useParams } from 'react-router';
 import { BiLogoWhatsapp } from 'react-icons/bi';
 import { CiLink } from 'react-icons/ci';
 import { MdDone } from 'react-icons/md';
 import ReviewItem from '../component/ui/Reviews';
+import { useGetProductDetailsQuery } from '../Services/Api';
+import { IoStarHalfOutline } from 'react-icons/io5';
+import Error from '../component/ui/Error';
+import { ShopLoding } from '../component/ui/ShopLoding';
  
  
 
 const Productdetails = () => {
+  const {id} = useParams();
+  const {data,isLoading,isError,isFetching,refetch} = useGetProductDetailsQuery(id);
+
+  
   const [nav1, setNav1] = useState(null);
   const [nav2, setNav2] = useState(null);
   const [selectedSize, setSelectedSize] = useState('M');
@@ -58,57 +66,34 @@ const minus = ()=>{
     nextArrow: <NextArrow />,
   };
   const sizes = ['S', 'M', 'L', 'X', 'XL', 'XXL'];
-  const allReviews = [
-    {
-      id: 1,
-      name: "Vanille",
-      rating: 5,
-      time: "1 Month Ago",
-      comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      avatar: "/pro (5).png"
-    },
-    {
-      id: 2,
-      name: "Amit Das",
-      rating: 4.5,
-      time: "2 Weeks Ago",
-      comment: "Darun service! Ami khub e khushi.",
-      avatar: "/pro (5).png"
-    },
-    {
-      id: 3,
-      name: "Himaloy",
-      rating: 4,
-      time: "3 Days Ago",
-      comment: "Everything is perfect, just loved the UI.",
-      avatar: "/pro (5).png"
-    },
-    {
-      id: 4,
-      name: "Himaloy",
-      rating: 4.5,
-      time: "3 Days Ago",
-      comment: "Everything is perfect, just loved the UI.",
-      avatar: "/pro (5).png"
-    }
-  ];
+  
 
 
   return (
-    <section className='py-14'>
-      <div className='container grid grid-cols-1 lg:grid-cols-2 gap-10 py-10'>
+    <section className='py-14 container'>
+      {
+        isLoading || isFetching ? (
+          <ShopLoding/>
+        ):
+        
+          isError ?(
+          <Error onRetry={refetch}/>
+        ):
+        (
+          <>
+          <div className='container grid grid-cols-1 lg:grid-cols-2 gap-10 py-10'>
         
         {/* Left Side: Slider Section */}
         <div className='grid grid-cols-4 gap-10 items-center'>
           {/* Main Slider Area (with Heading) */}
           <div className='col-span-3'>
-            <h2 className=" text-base text-secondary mb-6">Home > Men’s fashion ><span className='text-[#424241]/50'> Men's Stand Collar Leather Jacket s</span></h2>
+            <h2 className=" text-base text-secondary mb-6">Home.{data?.category}.<span className='text-[#424241]/50'> {data?.title}</span></h2>
             <Slider {...settings} asNavFor={nav2} ref={slider => (sliderRef1 = slider)}>
-              <div><img src="/pro (5).png" alt="pro" className='w-full' /></div>
-              <div><img src="/pro (6).png" alt="pro" className='w-full' /></div>
-              <div><img src="/pro (7).png" alt="pro" className='w-full' /></div>
-              <div><img src="/pro (6).png" alt="pro" className='w-full' /></div>
-              <div><img src="/pro (7).png" alt="pro" className='w-full' /></div>
+              {data?.images?.map((img, index) => (
+                <div key={index}>
+                  <img src={img} alt={`Product Image ${index + 1}`} className='w-full' />
+                </div>
+              ))}
             </Slider>
              <div className='flex gap-3.5 items-center mt-14'>
                      <p className='text-xl text-primary items-center'>Share</p>
@@ -145,29 +130,34 @@ const minus = ()=>{
             swipeToSlide={true}
             focusOnSelect={true}
           >
-            <div><img src="/pro (5).png" alt="pro" className='w-3/4' /></div>
-            <div><img src="/pro (6).png" alt="pro" className='w-3/4' /></div>
-            <div><img src="/pro (7).png" alt="pro" className='w-3/4' /></div>
-            <div><img src="/pro (6).png" alt="pro" className='w-3/4' /></div>
-            <div><img src="/pro (7).png" alt="pro" className='w-3/4' /></div>
+              {data?.images?.map((img, index) => (
+                <div key={index}>
+                  <img src={img} alt={`Product Image ${index + 1}`} className='w-3/4' />
+                </div>
+              ))}
           </Slider>
         </div>
 
         {/* Right Side: Details Section */}
         <div>
          <h1 className="text-2xl font-medium text-primary">
-              Super Skinny Rib Trouser & Joggers for Men By Sowdagar Trouser
+              {data?.title}
             </h1>
               {/* Ratings */}
            <div className='flex items-center flex-wrap gap-4 mt-4 mb-8'>
             <div className='flex items-center gap-1'>
-              <span className='text-lg text-primary font-medium'>4.0</span>
+              <span className='text-lg text-primary font-medium'>{data?.rating.toFixed(1) || 4.0 }</span>
               <div className='flex items-center gap-1 text-[#FFB800] text-2xl border-r-2 border-r-[#F2F2F2] pr-3.5'>
-              <FaStar />
-              <FaStar />
-              <FaStar />
-              <FaStar />
-              <FaRegStar className='text-[#BABABA]' />
+             {[...Array(5)].map((_, index) => {
+                  const rating = data?.rating || 0;
+                  if (index + 1 <= rating) {
+                    return <FaStar key={index} className="text-[#FAC96B]" />;
+                  } else if (index < rating && index + 1 > rating) {
+                    return <IoStarHalfOutline key={index} className="text-[#FAC96B]" />;
+                  } else {
+                    return <FaRegStar key={index} className="text-[#D3D3D3]" />;
+                  }
+              })}
               <span className='text-[#BABABA] text-lg'>(322)</span>
               </div>
             </div>
@@ -183,26 +173,26 @@ const minus = ()=>{
            </div>
            {/* Price */}
             <div className="flex items-baseline gap-3 mb-3 mt-8">
-              <span className="text-4xl font-semibold text-brand">$976.33</span>
-              <span className="text-xl text-[#8D8D8D] line-through">$1,020.99</span>
-              <span className="text-lg py-1 px-3 bg-bage text-white rounded">4%</span>
+              <span className="text-4xl font-semibold text-brand">${data?.price}</span>
+              <span className="text-xl text-[#8D8D8D] line-through">{data?.originalPrice || ""}</span>
+              <span className="text-lg py-1 px-3 bg-bage text-white rounded">{data?.discountPercentage?.toFixed(0) || ""} % Off</span>
             </div>
             <div className="flex items-center gap-5 mb-6">
               <div className='text-base text-primary'>
               SKU :
-              <span className="text-[#757575]">12314124124</span>
+              <span className="text-[#757575]">{data?.sku || ""}</span>
               </div>
               <div className="ml-1.5 flex items-center gap-1 text-[#757575]">
                 <div className="bg-bage rounded-full p-0.5 text-[8px] text-white">
                   <MdDone />
                 </div>
-                <span>In Stock</span>
+                <span>{data?.availabilityStatus || "In Stock"}({data?.stock || 0})</span>
               </div>
             </div>
             
             {/* Description */}
             <div className="text-primary text-lg mb-8 mt-8">
-              <p className="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+              <p className="mb-4">{data?.description || ""}</p>
               <ul className="list-disc pl-5 space-y-1">
                 <li>Direct Full Array</li>
                 <li>Quantum Dot Technology</li>
@@ -237,14 +227,11 @@ const minus = ()=>{
               <button className=" bg-brand text-white py-2.5 px-11 rounded cursor-pointer">Add cart</button>
               <button className=" bg-[#EBF4F9] text-brand py-2.5 px-11 rounded cursor-pointer">Buy Now</button>
             </div>
-
         </div>
-        
-
-      </div>
-      <section className='container'>
+            </div>
+            <section className='container'>
         <div className='px-11 bg-white'>
-          <h5 className='pt-5 text-2xl font-medium text-brand border-b border-[#F1F1F1] pb-5'>Producr details of LED Monitor With High Quality In The World</h5>
+          <h5 className='pt-5 text-2xl font-medium text-brand border-b border-[#F1F1F1] pb-5'>Product details of LED Monitor With High Quality In The World</h5>
               <h6 className='pt-10 pb-5 text-2xl font-bold text-primary'>See the best picture no matter where you sit</h6>
           <div className='grid grid-cols-1 md:grid-cols-2 justify-between border-b border-[#F1F1F1] pb-9  '>
             <div>
@@ -293,7 +280,7 @@ const minus = ()=>{
                       <div className="h-full bg-[#FFB340] rounded-full overflow-hidden" style={{ width: `${rating.percentage}%` }}>
                       </div>
                     </div>
-                       <span className="w-10 text-secondary text-nowrap over">{rating.percentage}%</span>
+                       <span className="w-10 text-secondary text-nowrap">{rating.percentage}%</span>
                   </div>
                 ))}
               </div>
@@ -303,17 +290,17 @@ const minus = ()=>{
             </div>
           </div>
           <div className="mb-16">
-            <h2 className="text-primary text-2xl border-b border-b-[#F1F1F1] pt-20 pb-5">Reviews ({allReviews.length})</h2>
-              {allReviews.map((item) => (
+            <h2 className="text-primary text-2xl border-b border-b-[#F1F1F1] pt-20 pb-5">Reviews ({data?.reviews?.length})</h2>
+              {data?.reviews?.map((item) => (
                 <ReviewItem 
                   key={item.id} 
-                  name={item.name}
+                  name={item.reviewerName}
                   rating={item.rating}
-                  time={item.time}
+                  time={item.date}
                   comment={item.comment}
                   avatar={item.image}
                 />
-              ))}
+              ))}  
           </div>
           <div className="pt-12 space-y-6">
                   <h3 className="text-2xl font-semibold text-primary">Add Your Review</h3>
@@ -349,7 +336,9 @@ const minus = ()=>{
                   </form>
                 </div>
         </div>
-      </section>
+            </section>
+            </>
+            )}
     </section>
   );
 };
