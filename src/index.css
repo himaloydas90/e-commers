@@ -19,7 +19,7 @@ body {
   font-family: "Poppins", sans-serif;
   background-color: #fafafa;
 }
-.slick-dots .slick-active button {
+.slick-dots .slick-active div {
   @apply w-8 bg-brand;
 }
 .sub_heading {

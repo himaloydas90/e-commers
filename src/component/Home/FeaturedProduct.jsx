@@ -4,7 +4,7 @@ import { Link } from "react-router";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import Card from "../ui/card";
 import Button from "../ui/button";
-import { useGetProductsQuery } from "../../Services/Api";
+import { useGetProductsQuery } from "../../services/Api";
 import Error from "../ui/Error";
 import Loding from "../ui/Loding";
 

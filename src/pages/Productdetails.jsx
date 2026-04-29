@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { NextArrow, PrevArrow } from '../component/ui/Arros';
 import { TiSocialFacebook } from 'react-icons/ti';
 import { FaCheck, FaHeart, FaLinkedinIn, FaRegStar, FaStar, FaStarHalfAlt, FaTwitter } from 'react-icons/fa';
@@ -9,7 +10,7 @@ import { BiLogoWhatsapp } from 'react-icons/bi';
 import { CiLink } from 'react-icons/ci';
 import { MdDone } from 'react-icons/md';
 import ReviewItem from '../component/ui/Reviews';
-import { useGetProductDetailsQuery } from '../Services/Api';
+import { useGetProductDetailsQuery } from '../services/Api';
 import { IoStarHalfOutline } from 'react-icons/io5';
 import Error from '../component/ui/Error';
 import { ShopLoding } from '../component/ui/ShopLoding';
@@ -62,6 +63,7 @@ const minus = ()=>{
     slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
+    arrows:true,
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
   };
@@ -291,9 +293,9 @@ const minus = ()=>{
           </div>
           <div className="mb-16">
             <h2 className="text-primary text-2xl border-b border-b-[#F1F1F1] pt-20 pb-5">Reviews ({data?.reviews?.length})</h2>
-              {data?.reviews?.map((item) => (
+              {data?.reviews?.map((item,index) => (
                 <ReviewItem 
-                  key={item.id} 
+                  key={index} 
                   name={item.reviewerName}
                   rating={item.rating}
                   time={item.date}

@@ -1,9 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Input from '../component/ui/input'
 import Button from '../component/ui/button'
-import { Link } from 'react-router'
+import { useLoginMutation } from '../services/Api'
+import { Link, useNavigate } from 'react-router'
 
 const Login = () => {
+  const navigate = useNavigate()
+   const [login,{error}] = useLoginMutation()
+   const [loginData,setLoginData]=useState({
+     username:"",
+     password:""
+   });
+ const handlelogin = async (e) => {
+   e.preventDefault();
+   const res = await login(loginData);
+   if (res.data){
+    localStorage.setItem('token', res.data.token || res.data.accessToken);
+    navigate('/');
+   }
+ };
+  
   return (
    <div className='flex justify-center items-center h-screen'>
 <div
@@ -12,26 +28,34 @@ const Login = () => {
   <div className="flex flex-col justify-center items-center space-y-2">
     <h2 className="text-2xl font-medium text-primary">Login</h2>
   </div>
-  <form className="w-full mt-4 space-y-3">
+  <form onSubmit={handlelogin} className="w-full mt-4 space-y-3">
     <div>
       <Input
         className="outline-none border-2 rounded-md px-2 py-1 text-primary focus:border-brand"
-        placeholder="enter your eamil/username"
-        id="username"
+        placeholder="enter your username"
+        label="username"
         name="username"
-        type="email"
+        type="text"
         required
+         onChange={(e)=>setLoginData((prev) => ({...prev,username: e.target.value}))}
+        
       />
     </div>
     <div>
       <Input
         className="outline-none border-2 rounded-md px-2 py-1 text-primary w-full focus:border-brand"
         placeholder="Password"
-        id="password"
+        label="password"
         name="password"
         type="password"
         required
+          onChange={(e)=>setLoginData((prev) => ({...prev,password: e.target.value}))}
       />
+          {error && (
+            <p className='text-red'>
+              {error.data?.message || "Something went wrong!"}
+            </p>
+          )}
     </div>
     <Button
       secondary
@@ -39,6 +63,7 @@ const Login = () => {
       id="login"
       name="login"
       type="submit"
+    
     >
       Login
     </Button>

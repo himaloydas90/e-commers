@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router";
 import Card from "./Card";
 import { FaLongArrowAltRight } from "react-icons/fa";
-import { useGetProductsQuery } from "../../Services/Api";
+import { useGetProductsQuery } from "../../services/Api";
 import Error from "./Error";
 import Loding from "./Loding";
 

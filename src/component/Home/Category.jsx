@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
-import { useGetCategoryListQuery } from "../../Services/Api";
+import { useGetCategoryListQuery } from "../../services/Api";
 import { MdArrowForwardIos } from "react-icons/md";
 import Error from "../ui/Error";
 import CategoryLoading from "../ui/CategoriLoding";
