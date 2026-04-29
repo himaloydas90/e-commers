@@ -54,7 +54,7 @@ const navbar = () => {
               className="border-none"
             />
             <Button
-              onClick={() => search.trim() !== "" && searchTriger(search)}
+              onClick={() => search.trim() !== "" && handleSearch(search)}
               className="rounded-l-none px-5"
             >
               <FaSearch className="text-xl" />
