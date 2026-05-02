@@ -175,7 +175,7 @@ const minus = ()=>{
            </div>
            {/* Price */}
             <div className="flex items-baseline gap-3 mb-3 mt-8">
-              <span className="text-4xl font-semibold text-brand">${data?.price}</span>
+              <span className="text-4xl font-semibold text-brand">${ ((data?.price || 0) * val).toFixed(2) }</span>
               <span className="text-xl text-[#8D8D8D] line-through">{data?.originalPrice || ""}</span>
               <span className="text-lg py-1 px-3 bg-bage text-white rounded">{data?.discountPercentage?.toFixed(0) || ""} % Off</span>
             </div>
@@ -196,9 +196,9 @@ const minus = ()=>{
             <div className="text-primary text-lg mb-8 mt-8">
               <p className="mb-4">{data?.description || ""}</p>
               <ul className="list-disc pl-5 space-y-1">
-                <li>Direct Full Array</li>
-                <li>Quantum Dot Technology</li>
-                <li>Ambient Mode</li>
+                <li>{data.warrantyInformation}</li>
+                <li>{data.shippingInformation}</li>
+                <li>{data.availabilityStatus}</li>
               </ul>
             </div>
 

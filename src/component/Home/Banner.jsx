@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 
 const Banner = () => {
+  
   const settings = {
     dots: true,
     speed: 500,
@@ -26,46 +27,41 @@ const Banner = () => {
   return (
     <section className="pt-3 pb-12">
       <div className="container flex gap-7">
-        <div className="w-[66%]">
+        <div className="w-[66%] mx-h[564px]">
           <Slider {...settings}>
             <div>
-              <Link to="/">
-                <img src="/hero.png" alt="hero" className="w-full" />
+              <Link to="/shop?category">
+                <img src="/slider (1).jpg" alt="hero" className="w-full rounded-xl object-cover" />
               </Link>
             </div>
             <div>
-              <Link to="/">
-                <img src="/hero.png" alt="hero" className="w-full" />
+              <Link to="/shop?category">
+                <img src="/slider (2).jpg" alt="hero" className="w-full rounded-xl object-cover" />
               </Link>
             </div>
-                        <div>
-              <Link to="/">
-                <img src="/hero.png" alt="hero" className="w-full" />
-              </Link>
-            </div>
-            <div>
-              <Link to="/">
-                <img src="/hero.png" alt="hero" className="w-full" />
-              </Link>
-            </div>
-                        <div>
-              <Link to="/">
-                <img src="/hero.png" alt="hero" className="w-full" />
+              <div>
+              <Link to="/shop?category">
+                <img src="/slider (3).jpg" alt="hero" className="w-full rounded-xl object-cover" />
               </Link>
             </div>
             <div>
-              <Link to="/">
-                <img src="/hero.png" alt="hero" className="w-full" />
+              <Link to="/shop?category">
+                <img src="/slider (4).jpg" alt="hero" className="w-full rounded-xl object-cover" />
+              </Link>
+            </div>
+            <div>
+              <Link to="/shop?category">
+                <img src="/slider (2).jpg" alt="hero" className="w-full rounded-xl object-cover" />
               </Link>
             </div>
           </Slider>
         </div>
-        <div className="w-[34%] flex flex-col space-y-7">
-          <Link to="/">
-            <img src="/hero1.png" alt="hero" className="w-full" />
+        <div className="w-[34%] mx-h[564px] flex flex-col space-y-6">
+          <Link to="/shop?category=motorcycle" className="block w-full aspect-[3/2] overflow-hidden rounded-lg">
+            <img src="/hero3.jpg" alt="hero" className="w-full h-full object-cover" />
           </Link>
-          <Link to="/">
-            <img src="/hero2.png" alt="hero" className="w-full" />
+          <Link to="/shop?category=womens-dresses" className="block w-full aspect-[3/2] overflow-hidden rounded-lg">
+            <img src="/hero2.jpg" alt="hero" className="w-full h-full object-cover" />
           </Link>
         </div>
       </div>

@@ -4,11 +4,13 @@ import Input from "../ui/input";
 import { FaRegHeart, FaRegUser, FaSearch } from "react-icons/fa";
 import Button from "../ui/button";
 import { BsCartDash } from "react-icons/bs";
-import { useGetProfileQuery, useLazySearchProductQuery } from "../../services/Api";
+import { useGetCategoryListQuery, useGetProfileQuery, useLazySearchProductQuery } from "../../services/Api";
 import Loding from "../ui/Loding";
 import Card from "../ui/card";
+import CategoryLoading from "../ui/CategoriLoding";
 
 const navbar = () => {
+  const {data:catagories,isLoading: isCatLoading} = useGetCategoryListQuery();
   const { data } = useGetProfileQuery();
   const [search, setSearch] = useState("");
   const [handleSearch, { data: serachProduct, isLoading }] = useLazySearchProductQuery();
@@ -17,18 +19,10 @@ const navbar = () => {
     if (search.trim() === "") return;
     const timer = setTimeout(() => {
       handleSearch(search);
-    }, 500);
+    }, 1000);
     return () => clearTimeout(timer);
   }, [search, handleSearch]);
 
-  const catagories = [
-    "men's Fashion",
-    "Kid's Fashion",
-    "Home & Lifestyle",
-    "Arts & Crafts",
-    "Computer & Electronics",
-    "Food & Grocery",
-  ];
 
   return (
     <header className="relative z-30">
@@ -140,18 +134,29 @@ const navbar = () => {
       </nav>
 
       {/* Categories */}
-      <div className="container pb-2.5 border-b border-b-[#EFEEEE] relative z-10">
+      <div className="container pb-3.5 border-b border-b-[#EFEEEE] relative z-10">
         <ul className="flex gap-14 overflow-x-auto px-1.5">
-          {catagories.map((item) => (
+          {isCatLoading ?(
+            <>
+            <CategoryLoading />
+            <CategoryLoading />
+            <CategoryLoading />
+            <CategoryLoading />
+            <CategoryLoading />
+            <CategoryLoading />
+            <CategoryLoading />
+            </>
+          ):(
+          catagories?.map((item) => (
             <li key={item}>
               <Link
-                to="/"
+                to={`/shop?category=${item}`}
                 className="text-base font-medium text-primary uppercase text-nowrap"
               >
                 {item}
               </Link>
             </li>
-          ))}
+          )))}
         </ul>
       </div>
 
