@@ -57,11 +57,11 @@ const Banner = () => {
           </Slider>
         </div>
         <div className="w-[34%] mx-h[564px] flex flex-col space-y-6">
-          <Link to="/shop?category=motorcycle" className="block w-full aspect-[3/2] overflow-hidden rounded-lg">
-            <img src="/hero3.jpg" alt="hero" className="w-full h-full object-cover" />
+          <Link to="/shop?category=motorcycle" className="block w-full  overflow-hidden rounded-lg">
+            <img src="/amit.png" alt="hero" className="w-full h-full object-cover" />
           </Link>
-          <Link to="/shop?category=womens-dresses" className="block w-full aspect-[3/2] overflow-hidden rounded-lg">
-            <img src="/hero2.jpg" alt="hero" className="w-full h-full object-cover" />
+          <Link to="/shop?category=womens-dresses" className="block w-full  overflow-hidden rounded-lg">
+            <img src="/amit.png" alt="hero" className="w-full h-full object-cover" />
           </Link>
         </div>
       </div>
