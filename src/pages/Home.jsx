@@ -1,15 +1,17 @@
 import React from "react";
-import Category from "../component/home/Category";
-import FeaturedProduct from "../component/home/FeaturedProduct";
-import Smartphone from "../component/ui/Smartphone";
 import Banner from "../component/home/Banner";
+import Category from "../component/home/Category";
+import Smartphone from "../component/ui/Smartphone";
+import FeatureProduct from "../component/home/FeaturedProduct";
+
+
 const Home = () => {
   return (
     <>
       <Banner />
       <Category />
       <Smartphone />
-      <FeaturedProduct />
+      <FeatureProduct />
     </>
   );
 };
