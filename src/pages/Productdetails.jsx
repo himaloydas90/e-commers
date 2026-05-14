@@ -124,7 +124,7 @@ const minus = ()=>{
                       </div>
                     </div>
           </div>
-          <Slider
+          <Slider className='col-span-1'
             {...vsettings}
             asNavFor={nav1}
             ref={slider => (sliderRef2 = slider)}
@@ -196,9 +196,9 @@ const minus = ()=>{
             <div className="text-primary text-lg mb-8 mt-8">
               <p className="mb-4">{data?.description || ""}</p>
               <ul className="list-disc pl-5 space-y-1">
-                <li>{data.warrantyInformation}</li>
-                <li>{data.shippingInformation}</li>
-                <li>{data.availabilityStatus}</li>
+                <li>{data?.warrantyInformation || ""}</li>
+                <li>{data?.shippingInformation || ""}</li>
+                <li>{data?.availabilityStatus || ""}</li>
               </ul>
             </div>
 

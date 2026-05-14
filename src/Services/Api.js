@@ -6,6 +6,7 @@ export const ApiService = createApi({
     baseUrl: "https://dummyjson.com", 
     prepareHeaders: (headers) => {
       const token = localStorage.getItem("token"); // LocalStorage theke token nibe
+      
       if (token) {
         headers.set('authorization', `Bearer ${token}`);
       }

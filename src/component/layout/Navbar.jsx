@@ -9,11 +9,14 @@ import Loding from "../ui/Loding";
 import Card from "../ui/card";
 import CategoryLoading from "../ui/CategoriLoding";
 
-const navbar = () => {
+const Navbar = () => {
   const {data:catagories,isLoading: isCatLoading} = useGetCategoryListQuery();
-  const { data } = useGetProfileQuery();
   const [search, setSearch] = useState("");
   const [handleSearch, { data: serachProduct, isLoading }] = useLazySearchProductQuery();
+const token = localStorage.getItem('token');
+const { data } = useGetProfileQuery(undefined, {
+  skip: !token
+});
 
   useEffect(() => {
     if (search.trim() === "") return;
@@ -164,4 +167,4 @@ const navbar = () => {
   );
 };
 
-export default navbar;
+export default Navbar;

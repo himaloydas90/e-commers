@@ -14,7 +14,7 @@ const Card = ({ data }) => {
           <img
             src={data?.thumbnail}
             alt={data?.title}
-            className="w-full h-48 object-cover"
+            className="w-full object-cover"
           />
         </Link>
         {data?.discountPercentage && (

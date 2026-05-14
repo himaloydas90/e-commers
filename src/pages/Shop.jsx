@@ -122,9 +122,8 @@ const Shop = () => {
     ))
   )}
 </div>
-        <DefaultPagination handlePageChange={(page) => setPageNum(page)} pageNum={pageNum} totalPage={totalPage} />
+     <DefaultPagination handlePageChange={(page) => setPageNum(page)} pageNum={pageNum} totalPage={totalPage} />
       </div>
-      
     </main>
   );
 };
