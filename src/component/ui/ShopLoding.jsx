@@ -83,7 +83,6 @@ export function ShopLoding() {
           maxWidth: 1200,
           margin: "0 auto",
           padding: "40px 40px",
-          gap: 56,
         }}
       >
         {/* LEFT — Image panel */}

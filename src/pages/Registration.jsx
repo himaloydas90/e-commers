@@ -3,6 +3,8 @@ import Input from '../component/ui/input'
 import { Link } from 'react-router'
 import Button from '../component/ui/button'
 
+
+
 const Registration = () => {
   return (
    <div className='flex justify-center items-center h-screen'>

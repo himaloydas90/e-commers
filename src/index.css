@@ -22,7 +22,7 @@ body {
   @apply w-8 bg-brand;
 }
 .sub_heading {
-  @apply text-2xl font-medium text-[#383838];
+  @apply text-2xl font-medium text-primary;
 }
 .heading {
   @apply font-medium text-2xl text-primary;

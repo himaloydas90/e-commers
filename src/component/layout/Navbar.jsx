@@ -82,7 +82,7 @@ const { data } = useGetProfileQuery(undefined, {
               )}
             </Link>
 
-            <Link to="/Shop/:id">
+            <Link to="#">
               <div className="flex items-center gap-1.5">
                 <FaRegHeart />
                 <span className="hidden md:block">Wishlist</span>
