@@ -1,5 +1,5 @@
 import React from 'react'
-import Input from '../component/ui/input'
+import Input from '../component/ui/Input'
 import { Link } from 'react-router'
 import Button from '../component/ui/button'
 

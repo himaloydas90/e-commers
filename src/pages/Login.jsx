@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Input from '../component/ui/input'
+import Input from '../component/ui/Input'
 import Button from '../component/ui/button'
 import { useLoginMutation } from '../services/Api'
 import { Link, useNavigate } from 'react-router'
@@ -75,4 +75,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Login;
