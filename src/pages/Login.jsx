@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Input from '../component/ui/Input'
-import Button from '../component/ui/button'
+import Button from '../component/ui/Button'
 import { useLoginMutation } from '../services/Api'
 import { Link, useNavigate } from 'react-router'
 
