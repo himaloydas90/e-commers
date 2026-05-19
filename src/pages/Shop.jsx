@@ -3,14 +3,11 @@ import Dropdown from "../component/ui/Dropdown";
 import Card from "../component/ui/Card"; 
 import { Link, useSearchParams } from "react-router";
 import { FaChevronDown } from "react-icons/fa";
-import { useGetCategoryListQuery, useGetProductsQuery } from "../Services/Api";
 import { DefaultPagination } from "../component/ui/Pagination";
 import Error from "../component/ui/Error";
 import Loding from "../component/ui/Loding";
 import CategoryLoading from "../component/ui/CategoriLoding";
-
-
-
+import { useGetCategoryListQuery, useGetProductsQuery } from "../services/Api";
 
 const Shop = () => {
   const [searchparams] = useSearchParams();
